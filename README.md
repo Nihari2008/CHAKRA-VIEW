@@ -36,9 +36,9 @@ Individual signals can sometimes produce false positives. Chakra-View's true str
 
 ##  System Architecture & Tech Stack
 
-- **Backend Logic / Processing:** [Node.js / Python / Express - Add your backend language here]
+- **Backend Logic / Processing:** [Node.js / Python / Express]
 - **Graph Database:** Neo4j (Cypher Query Language)
-- **Frontend Analyst Dashboard:** [React.js / HTML / Tailwind CSS - Add your frontend stack here]
+- **Frontend Analyst Dashboard:** [React.js / HTML / Tailwind CSS ]
 
 ---
 
