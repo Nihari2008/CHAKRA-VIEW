@@ -34,11 +34,25 @@ Individual signals can sometimes produce false positives. Chakra-View's true str
 
 ---
 
+
 ##  System Architecture & Tech Stack
 
-- **Backend Logic / Processing:** [Node.js / Python / Express]
-- **Graph Database:** Neo4j (Cypher Query Language)
-- **Frontend Analyst Dashboard:** [React.js / HTML / Tailwind CSS ]
+The architecture follows a modular **Graph-Data-to-API** pipeline optimized for real-time risk computing:
+
+- **Frontend Dashboard:** `Streamlit` (Renders data tables, conditional risk banners, and the final metric dashboard)
+- **Backend API Engine:** `FastAPI` (Asynchronous Python framework managing payload intake and executing background scoring tasks)
+- **Graph Database:** `Neo4j` (Maintains full structural linkage of account profiles and directional transactions)
+- **Network Processing:** `Neo4j Graph Data Science (GDS)` (Executes advanced graph algorithms for community clustering and anomaly tracking)
+- **Core Processing Language:** `Python` (Drives the analytical scoring algorithms)
+
+###  End-to-End Workflow Pipeline
+1. **Intake:** Streamlit captures a suspect UPI ID and dispatches it over an API request.
+2. **Processing:** The FastAPI layer intercepts the request and simultaneously fires off your specific analytic routines:
+   - **Fan-in query** execution
+   - **Velocity calculation** metrics
+   - **Cluster lookup** sequences via GDS
+3. **Response:** The backend aggregates the results into a structural JSON payload.
+4. **Render:** Streamlit consumes the JSON data to instantly dynamically populate analyst tables and assign a visual final risk score.
 
 ---
 
